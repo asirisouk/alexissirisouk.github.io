@@ -5,7 +5,1292 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Alexis Sirisouk</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexis Sirisouk</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --cloudy: #dbe0e6;
+    --matcha: #8a9445;
+    --gingham: #c8b2ce;
+    --candle: #2a5654;
+    --wine: #771c31;
+    --clogs: #99bdc1;
+    --linen: #e5d1d1;
+    --lemon: #d5c472;
+    --cream: #faf8f4;
+    --ink: #1e1e1e;
+    --ink-soft: #3a3a3a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 3rem;
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--wine); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 5rem;
+    position: relative;
+  }
+
+  .hero-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--matcha);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--matcha);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .hero-subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--candle);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .pill {
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-weight: 400;
+  }
+
+  .pill-wine { background: var(--linen); color: var(--wine); }
+  .pill-matcha { background: rgba(138,148,69,0.12); color: var(--matcha); }
+  .pill-candle { background: rgba(42,86,84,0.1); color: var(--candle); }
+  .pill-gingham { background: rgba(200,178,206,0.25); color: #6b5070; }
+  .pill-clogs { background: rgba(153,189,193,0.2); color: #456e72; }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--candle);
+    color: white;
+    padding: 0.85rem 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    width: fit-content;
+  }
+
+  .hero-cta:hover {
+    background: var(--wine);
+    transform: translateY(-2px);
+  }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    background: var(--cloudy);
+  }
+
+  .hero-photo-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .hero-photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: saturate(0.9);
+    mix-blend-mode: multiply;
+  }
+
+  .hero-color-block {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, var(--gingham), transparent);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .hero-label {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: white;
+    letter-spacing: 0.06em;
+    mix-blend-mode: difference;
+  }
+
+  /* SECTION SHARED */
+  section {
+    padding: 7rem 5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    color: var(--gingham);
+    font-style: italic;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--wine);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--cloudy);
+    margin-left: 1rem;
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--candle);
+    color: white;
+    padding: 6rem 5rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-left .about-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  .about-left .about-heading em {
+    font-style: italic;
+    color: var(--lemon);
+  }
+
+  .about-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .about-detail {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .about-detail span:first-child {
+    color: var(--lemon);
+    text-transform: uppercase;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    min-width: 80px;
+  }
+
+  .about-right p {
+    font-size: 1rem;
+    line-height: 2;
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .tool-tag {
+    padding: 0.3rem 0.9rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.7);
+    border-radius: 2px;
+  }
+
+  /* MARKETING */
+  .marketing { background: var(--cream); }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    border: 1px solid rgba(0,0,0,0.07);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: white;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+  }
+
+  .card-color-bar {
+    height: 5px;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  .card-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .card-desc {
+    font-size: 0.84rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+  }
+
+  .card-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.2s;
+  }
+
+  .card-link:hover { gap: 0.9rem; }
+
+  /* NRCA FEATURED */
+  .nrca-featured {
+    background: var(--linen);
+    padding: 6rem 5rem;
+  }
+
+  .nrca-inner {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .nrca-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--wine);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .nrca-label::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--wine);
+  }
+
+  .nrca-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+
+  .nrca-title em { font-style: italic; color: var(--wine); }
+
+  .nrca-desc {
+    font-size: 0.9rem;
+    line-height: 2;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+
+  .nrca-deliverables {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .deliverable {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .deliverable::before {
+    content: '—';
+    color: var(--matcha);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .nrca-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .stat-box {
+    padding: 1.5rem;
+    background: white;
+    border-left: 3px solid var(--matcha);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--candle);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  /* CREATIVE */
+  .creative { background: white; }
+
+  .collage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .collage-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: var(--cloudy);
+  }
+
+  .collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+    filter: saturate(0.95);
+  }
+
+  .collage-item:hover img { transform: scale(1.04); }
+
+  .collage-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30,30,30,0.5), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.2rem;
+  }
+
+  .collage-item:hover .collage-overlay { opacity: 1; }
+
+  .collage-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: white;
+    letter-spacing: 0.04em;
+  }
+
+  .creative-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .creative-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* VIDEO */
+  .video-section { background: var(--cloudy); }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .video-card {
+    background: white;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+  }
+
+  .video-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--candle);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-play {
+    width: 48px;
+    height: 48px;
+    border: 2px solid rgba(255,255,255,0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .video-card:hover .video-play {
+    background: rgba(255,255,255,0.15);
+    border-color: white;
+  }
+
+  .video-play::after {
+    content: '';
+    border-left: 16px solid rgba(255,255,255,0.85);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    margin-left: 4px;
+  }
+
+  .video-info { padding: 1.4rem; }
+
+  .video-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .video-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+  }
+
+  .video-note {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .video-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--candle);
+    border-bottom: 1px solid var(--candle);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .video-link:hover { color: var(--wine); border-color: var(--wine); }
+
+  /* DIGITAL / INTERACTIVE */
+  .digital { background: var(--cream); }
+
+  .digital-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .digital-main {
+    background: var(--candle);
+    padding: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .digital-main::before {
+    content: '✦';
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-size: 2rem;
+    color: var(--lemon);
+    opacity: 0.5;
+  }
+
+  .digital-main-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lemon);
+    margin-bottom: 1.5rem;
+  }
+
+  .digital-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .digital-main-title em { font-style: italic; color: var(--lemon); }
+
+  .digital-main-desc {
+    font-size: 0.87rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 2rem;
+  }
+
+  .digital-main-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--lemon);
+    color: var(--candle);
+    padding: 0.7rem 1.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s;
+  }
+
+  .digital-main-link:hover { opacity: 0.85; }
+
+  .digital-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .digital-card {
+    padding: 1.8rem;
+    border: 1px solid rgba(0,0,0,0.08);
+    background: white;
+    transition: border-color 0.2s;
+  }
+
+  .digital-card:hover { border-color: var(--clogs); }
+
+  .digital-card-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--clogs);
+    margin-bottom: 0.7rem;
+  }
+
+  .digital-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+
+  .digital-card-desc {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+  }
+
+  .digital-card-link {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--candle);
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  .digital-card-link:hover { color: var(--wine); }
+
+  /* CERT */
+  .credentials {
+    background: var(--linen);
+    padding: 5rem;
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cert-card {
+    padding: 2rem;
+    background: white;
+    border-top: 3px solid var(--matcha);
+  }
+
+  .cert-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .cert-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .cert-detail {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: white;
+    padding: 4rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  .footer-name em { color: var(--lemon); font-style: normal; }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: right;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--lemon); }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.25);
+    margin-top: 1rem;
+    letter-spacing: 0.06em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-left > * {
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-tag { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.2s; }
+  .hero-subtitle { animation-delay: 0.3s; }
+  .hero-desc { animation-delay: 0.4s; }
+  .hero-pills { animation-delay: 0.5s; }
+  .hero-cta { animation-delay: 0.6s; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { height: 50vw; }
+    .hero-left { padding: 5rem 2rem 3rem; }
+    section { padding: 5rem 2rem; }
+    .about { padding: 5rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .nrca-featured { padding: 5rem 2rem; }
+    .nrca-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .collage-grid { grid-template-columns: 1fr; }
+    .creative-layout { grid-template-columns: 1fr; gap: 2rem; }
+    .video-grid { grid-template-columns: 1fr; }
+    .digital-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .credentials { padding: 5rem 2rem; }
+    footer { flex-direction: column; gap: 2rem; text-align: center; padding: 3rem 2rem; }
+    .footer-links { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Alexis Sirisouk</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#marketing">Marketing</a></li>
+    <li><a href="#creative">Creative</a></li>
+    <li><a href="#digital">Digital</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="https://www.linkedin.com/in/alexis-sirisouk-b2a534332/" target="_blank" style="display:inline-flex; align-items:center; gap:0.4rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-tag">Digital Media & Design</div>
+    <h1 class="hero-name">Alexis<br><em>Sirisouk</em></h1>
+    <p class="hero-subtitle">Content Strategist & Creative</p>
+    <p class="hero-desc">
+      UConn BA candidate in Digital Media and Design with a concentration in Business Strategies. I work across brand strategy, social media, visual design, and video with a belief that the best creative work is both intentional and human.
+    </p>
+    <p class="hero-desc" style="margin-top: -1rem;">
+      I have studied abroad at Yonsei University in Seoul, earned my Google Analytics 4 certification, and started as a 4.0 Dean's List student at CT State before transferring to UConn. I am drawn to work that lives at the intersection of the analytical and the creative, where data informs story and design communicates identity.
+    </p>
+    <div class="hero-pills">
+      <span class="pill pill-wine">Social Media Strategy</span>
+      <span class="pill pill-matcha">Brand Research</span>
+      <span class="pill pill-candle">Video Editing</span>
+      <span class="pill pill-gingham">Visual Design</span>
+      <span class="pill pill-clogs">Google Analytics Certified</span>
+    </div>
+    <a href="#marketing" class="hero-cta">View Work →</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img src="DSC00032.JPG" alt="Alexis Sirisouk"
+        onerror="this.onerror=null; this.parentElement.style.background='var(--gingham)'; this.style.display='none'; this.parentElement.innerHTML += '<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-family:Cormorant Garamond,serif;font-size:1.2rem;font-style:italic;color:rgba(255,255,255,0.6);letter-spacing:0.06em;\'>Alexis Sirisouk</div>';">
+      <div class="hero-color-block"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MARKETING & STRATEGY -->
+<section class="marketing" id="marketing">
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <h2 class="section-title">Marketing &<br><em>Strategy</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <div class="card-color-bar" style="background: var(--wine);"></div>
+      <div class="card-body">
+        <p class="card-tag" style="color: var(--wine);">Social Media Strategy · UConn DMD</p>
+        <h3 class="card-title">NRCA Social Media Brand Strategy</h3>
+        <p class="card-desc">A full social media strategy and brand guide produced for the National Roofing Contractors Association as part of UConn's Digital Media and Design program. Social listening and audience data were gathered using Talkwalker. Deliverables included a color and typography system, Canva templates, platform-specific posting guides for Instagram, TikTok, and LinkedIn, a hashtag library, and an event workflow built to sustain the brand beyond the project period.</p>
+        <a href="#" class="card-link" style="color: var(--wine); opacity: 0.4; pointer-events: none;">View Project PDF ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-color-bar" style="background: var(--matcha);"></div>
+      <div class="card-body">
+        <p class="card-tag" style="color: var(--matcha);">Social Media Strategy · SMBA</p>
+        <h3 class="card-title">Chick-fil-A Ethical Social Media Campaign</h3>
+        <p class="card-desc">An ethics-forward campaign strategy examining how brands can navigate public controversy through transparent and values-driven social media communication. Produced for SMBA coursework with attention to audience trust and long-term brand integrity.</p>
+        <a href="https://raw.githubusercontent.com/asirisouk/alexissirisouk.github.io/main/SMBA%20Final%20Project.pdf" class="card-link" style="color: var(--matcha);" target="_blank">View Project PDF ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-color-bar" style="background: var(--gingham);"></div>
+      <div class="card-body">
+        <p class="card-tag" style="color: #6b5070;">Brand Research · DMD 3720</p>
+        <h3 class="card-title">The Designer of Glossier</h3>
+        <p class="card-desc">A design research project on Adriana Deleo, VP Creative Director at Glossier, examining how she built a brand identity system that is simultaneously aspirational and practical. The presentation itself was designed in Glossier's own visual language, using their signature pink, Aperçu typography, and sticker-style graphics to demonstrate understanding of the brand from the inside out.</p>
+        <a href="https://raw.githubusercontent.com/asirisouk/alexissirisouk.github.io/main/Glossier%20Design%20Research%20Project.pdf" class="card-link" style="color: #6b5070;" target="_blank">View Slides ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-color-bar" style="background: var(--clogs);"></div>
+      <div class="card-body">
+        <p class="card-tag" style="color: #456e72;">Digital Marketing · DMD 3720</p>
+        <h3 class="card-title">Spotify Digital Marketing Analysis</h3>
+        <p class="card-desc">An analysis of Spotify's digital marketing ecosystem, examining how the platform uses data, personalization, and content strategy to maintain dominance in a competitive streaming market. Platform data was collected and analyzed using Talkwalker.</p>
+        <a href="#" class="card-link" style="color: #456e72; opacity: 0.4; pointer-events: none;">View Project PDF ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-color-bar" style="background: var(--lemon);"></div>
+      <div class="card-body">
+        <p class="card-tag" style="color: #7a6b1a;">Audit · SMBA</p>
+        <h3 class="card-title">Wendy's Social Media Audit</h3>
+        <p class="card-desc">A platform performance audit of Wendy's social media presence, reviewing content strategy, audience engagement patterns, and brand voice consistency across channels. Data was gathered using Talkwalker.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-color-bar" style="background: var(--candle);"></div>
+      <div class="card-body">
+        <p class="card-tag" style="color: var(--candle);">Research Website</p>
+        <h3 class="card-title">The Sharing Economy and Museums</h3>
+        <p class="card-desc">A research website built for Collaborating with Cultural Organizations, exploring how the sharing economy is pushing museums to reimagine community engagement and relevance for a digitally native generation.</p>
+        <a href="https://sharingecon.omeka.net/" class="card-link" style="color: var(--candle);" target="_blank">Visit Site →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SMACC Lab — full width horizontal card -->
+  <div class="project-card" style="margin-top: 1.5rem; display: grid; grid-template-columns: 5px 1fr; overflow: hidden;">
+    <div style="background: var(--candle);"></div>
+    <div class="card-body" style="display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem;">
+      <div style="flex: 0 0 auto;">
+        <p class="card-tag" style="color: var(--candle);">Social Media Analytics Command Center · Intelligence Research (SMACC Lab)</p>
+        <h3 class="card-title" style="font-size: 1.3rem;">ICE AI & Surveillance Infrastructure Report</h3>
+        <a href="#" class="card-link" style="color: var(--candle); opacity: 0.4; pointer-events: none; margin-top: 1rem; display: inline-block;">View Report PDF ↗</a>
+      </div>
+      <p class="card-desc" style="max-width: 640px; margin-bottom: 0;">An intelligence desk report produced for UConn's SMACC Lab assessing ICE's expansion of AI-driven enforcement tools between January and March 2026. Synthesizes government contract data, DHS documentation, and investigative reporting across predictive targeting, biometric identification, and location monitoring. Deliverables included a weekly roundtable brief, an intelligence summary, infographics, and a crisis report slide deck.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVE WORK -->
+<section class="creative" id="creative">
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <h2 class="section-title">Creative &<br><em>Visual Design</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="creative-layout">
+    <div>
+      <div class="collage-grid">
+        <div class="collage-item">
+          <img src="AlexisSirisouk_Designasobservation_9_26_24.jpg" alt="Mandala collage" onerror="this.parentElement.style.background='var(--gingham)'">
+          <div class="collage-overlay"><span class="collage-caption">Mandala Composition</span></div>
+        </div>
+        <div class="collage-item">
+          <img src="2AlexisSirisouk_Designasobservation_9_26_24.jpg" alt="Street tunnel collage" onerror="this.parentElement.style.background='var(--cloudy)'">
+          <div class="collage-overlay"><span class="collage-caption">Forced Perspective</span></div>
+        </div>
+        <div class="collage-item">
+          <img src="3AlexisSirisouk_Designasobservation_9_26_24.jpg" alt="Warhol grid collage" onerror="this.parentElement.style.background='var(--wine)'">
+          <div class="collage-overlay"><span class="collage-caption">Pop Art Grid</span></div>
+        </div>
+        <div class="collage-item">
+          <img src="4AlexisSirisouk_Designasobservation_9_26_24.jpg" alt="TV grid collage" onerror="this.parentElement.style.background='var(--candle)'">
+          <div class="collage-overlay"><span class="collage-caption">Screen Study</span></div>
+        </div>
+      </div>
+      <p style="font-size:0.75rem; letter-spacing:0.08em; color: var(--ink-soft); margin-top: 1rem; text-align: right; font-style: italic;">Digital Design Lab · Fall 2024 · Adobe Photoshop</p>
+    </div>
+
+    <div class="creative-side">
+      <div style="padding: 2rem; background: var(--linen);">
+        <p style="font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--wine); margin-bottom: 1rem;">Design as Observation</p>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; line-height: 1.3; margin-bottom: 1.2rem;">Four Photoshop collages exploring pattern, repetition, and perception.</p>
+        <p style="font-size: 0.84rem; line-height: 1.9; color: var(--ink-soft);">
+          Created for a digital design lab course, these four pieces each explore a different compositional idea: radial symmetry, forced perspective, color grid repetition, and serial variation. Each one began with found objects and photography, then was built up in layers using Photoshop.
+        </p>
+      </div>
+
+      <div style="padding: 2rem; border: 1px solid rgba(0,0,0,0.08); flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+        <p style="font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--matcha); margin-bottom: 1rem;">Design Research · DMD 3720</p>
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; line-height: 1.3;">The Designer of Glossier</p>
+        <p style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.2rem;">What interested me most about Glossier was not the pink or the minimalism but the philosophy underneath it. Adriana Deleo described their approach as a balance between the aspirational and the practical, designing for the medicine cabinet rather than the store shelf.</p>
+        <p style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.85;">This project was an attempt to understand what that actually means when translated into a font choice, a packaging decision, or a product name. The presentation was built entirely inside Glossier's own visual language as a way of testing that understanding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIGITAL & INTERACTIVE -->
+<section class="digital" id="digital">
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <h2 class="section-title">Digital &<br><em>Interactive</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="digital-grid">
+    <div class="digital-main">
+      <p class="digital-main-label">Interactive — p5.js</p>
+      <h3 class="digital-main-title"><em>Digital Nostalgia</em><br>An Interactive Memory</h3>
+      <p class="digital-main-desc">
+        Built for an intro to programming course using JavaScript in p5.js, this piece is a personal meditation on digital nostalgia. Clicking anywhere on the canvas cycles through 50 personal photos and childhood screenshots, faces blurred in Photoshop for that hazy, half-remembered quality. A starfield follows the cursor. The whole thing feels like playing a computer game in the early 2000s.
+      </p>
+      <p class="digital-main-desc">
+        Inspired by net art references including Chia Amisola's "We are only moving towards each other" and Sarah Rothberg's "MEMORY/PLACE: MY HOUSE."
+      </p>
+      <a href="https://editor.p5js.org/asirisouk/sketches/795nLYRZk" target="_blank" class="digital-main-link">View Live Sketch →</a>
+    </div>
+
+    <div class="digital-side">
+      <div class="digital-card">
+        <p class="digital-card-label">Research Website</p>
+        <h3 class="digital-card-title">The Sharing Economy & Cultural Organizations</h3>
+        <p class="digital-card-desc">Built on Omeka for a Collaborating with Cultural Organizations course. Explores how the sharing economy challenges museums to rethink engagement, trust, and relevance for a digitally native generation.</p>
+        <a href="https://sharingecon.omeka.net/" target="_blank" class="digital-card-link">Visit Site →</a>
+      </div>
+
+      <div class="digital-card">
+        <p class="digital-card-label">Study Account</p>
+        <h3 class="digital-card-title">@http.soukiebb — Book Reviews & Writing</h3>
+        <p class="digital-card-desc">An Instagram study account featuring book reviews, reflections, and writing. A personal creative practice in consistent content creation and thoughtful writing.</p>
+        <a href="https://www.instagram.com/http.soukiebb/" target="_blank" class="digital-card-link">View on Instagram →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Film &<br><em>Video</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <a href="https://youtu.be/nKsCBrMryDQ" target="_blank" style="display:block; position:relative; aspect-ratio:16/9; overflow:hidden;">
+        <img src="https://img.youtube.com/vi/nKsCBrMryDQ/hqdefault.jpg" alt="A Day at UConn" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.15); transition:background 0.2s;">
+          <div class="video-play"></div>
+        </div>
+      </a>
+      <div class="video-info">
+        <p class="video-label" style="color: var(--candle);">UConn Vlog</p>
+        <h3 class="video-title">A Day at UConn</h3>
+        <p class="video-note">A personal vlog from fall 2024 on the UConn Storrs campus. Edited in iMovie.</p>
+        <a href="https://youtu.be/nKsCBrMryDQ" target="_blank" class="video-link">Watch on YouTube →</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a href="https://youtu.be/0JhQFSiJN9w" target="_blank" style="display:block; position:relative; aspect-ratio:16/9; overflow:hidden;">
+        <img src="https://img.youtube.com/vi/0JhQFSiJN9w/hqdefault.jpg" alt="NYC, January 2024" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.15); transition:background 0.2s;">
+          <div class="video-play"></div>
+        </div>
+      </a>
+      <div class="video-info">
+        <p class="video-label" style="color: var(--wine);">Travel Vlog</p>
+        <h3 class="video-title">NYC, January 2024</h3>
+        <p class="video-note">A New York City vlog from January 2024, capturing the city in winter. Edited in iMovie.</p>
+        <a href="https://youtu.be/0JhQFSiJN9w" target="_blank" class="video-link">Watch on YouTube →</a>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <a href="https://youtu.be/vhWICdZDl-0" target="_blank" style="display:block; position:relative; aspect-ratio:16/9; overflow:hidden;">
+        <img src="https://img.youtube.com/vi/vhWICdZDl-0/hqdefault.jpg" alt="Famalay" style="width:100%; height:100%; object-fit:cover; display:block;">
+        <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.15); transition:background 0.2s;">
+          <div class="video-play"></div>
+        </div>
+      </a>
+      <div class="video-info">
+        <p class="video-label" style="color: var(--matcha);">Music Video</p>
+        <h3 class="video-title">Famalay</h3>
+        <p class="video-note">A music video made for UConn professor Barbara Gurr for her Women and Gender Studies course. Edited in iMovie.</p>
+        <a href="https://youtu.be/vhWICdZDl-0" target="_blank" class="video-link">Watch on YouTube →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <h2 class="section-title">Credentials &<br><em>Skills</em></h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <h3 class="cert-name">UConn — BA Digital Media & Design</h3>
+      <p class="cert-detail">Business Strategies concentration<br>University of Connecticut, Storrs</p>
+    </div>
+
+    <div class="cert-card" style="border-top-color: var(--lemon);">
+      <div class="cert-icon">✦</div>
+      <h3 class="cert-name">CT State AA — Dean's List</h3>
+      <p class="cert-detail">4.0 GPA<br>Associate of Arts</p>
+    </div>
+
+    <div class="cert-card" style="border-top-color: var(--clogs);">
+      <div class="cert-icon">🌏</div>
+      <h3 class="cert-name">Study Abroad — Yonsei University</h3>
+      <p class="cert-detail">Seoul, South Korea<br>International academic experience</p>
+    </div>
+
+    <div class="cert-card" style="border-top-color: var(--matcha);">
+      <div class="cert-icon">📊</div>
+      <h3 class="cert-name">Google Analytics 4 Certified</h3>
+      <p class="cert-detail">Issued October 2, 2025 · Expires October 2, 2026<br>Certificate ID: 162350659</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem; padding: 2rem; background: white; border: 1px solid rgba(0,0,0,0.07);">
+    <p style="font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--matcha); margin-bottom: 1.2rem;">Tools & Software</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Adobe Photoshop</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Canva</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">iMovie</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">CapCut</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Sprout Social</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Metricool</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">p5.js</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Google Analytics 4</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Omeka</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-left">
+      <h2 class="about-heading">Made with curiosity,<br><em>care, and craft.</em></h2>
+      <div class="about-details">
+        <div class="about-detail">
+          <span>School</span>
+          <span>University of Connecticut</span>
+        </div>
+        <div class="about-detail">
+          <span>Major</span>
+          <span>Digital Media & Design, Business Strategies</span>
+        </div>
+        <div class="about-detail">
+          <span>Location</span>
+          <span>Storrs, CT</span>
+        </div>
+        <div class="about-detail">
+          <span>Instagram</span>
+          <span>@http.soukiebb</span>
+        </div>
+        <div class="about-detail">
+          <span>Substack</span>
+          <span><a href="https://substack.com/@soukiebb" target="_blank" style="color: rgba(255,255,255,0.6); text-decoration: underline; text-underline-offset: 3px;">soukiebb</a></span>
+        </div>
+        <div class="about-detail">
+          <span>LinkedIn</span>
+          <span><a href="https://www.linkedin.com/in/alexis-sirisouk-b2a534332/" target="_blank" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">alexis-sirisouk</a></span>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <p>I am someone who pays attention. To the font on a coffee cup, to the way a brand guide can outlive the person who made it, to the moment a piece of media makes you feel something you did not expect. That attentiveness is what I bring to everything I make, whether it is a social media strategy or a Photoshop collage built from things I found interesting that week.</p>
+      <p>I am drawn to work that takes both craft and rigor seriously, and to teams who understand those two things are not opposites. What ties it all together is a genuine interest in how brands earn and keep trust, and how the right creative decisions make that possible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Alexis <em>Sirisouk</em></div>
+    <p class="footer-copy">Digital Media & Design · UConn · 2025</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/alexis-sirisouk-b2a534332/" target="_blank">LinkedIn</a>
+    <a href="https://substack.com/@soukiebb" target="_blank">Substack</a>
+    <a href="https://www.instagram.com/http.soukiebb/" target="_blank">@http.soukiebb</a>
+    <a href="https://sharingecon.omeka.net/" target="_blank">Research Site</a>
+    <a href="https://editor.p5js.org/asirisouk/sketches/795nLYRZk" target="_blank">p5.js Sketch</a>
+  </div>
+</footer>
+
+</body>
+</html>
+
   :root {
     --cloudy: #dbe0e6;
     --matcha: #8a9445;<!DOCTYPE html>
