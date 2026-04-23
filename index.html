@@ -3,6 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Alexis Sirisouk — Portfolio">
+<meta property="og:description" content="Content Strategist & Creative. UConn Digital Media & Design.">
+<meta property="og:image" content="https://alexissirisouk.github.io/DSC00032.JPG">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://alexissirisouk.github.io">
 <title>Alexis Sirisouk</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -73,6 +79,7 @@
   }
 
   .nav-links a:hover { color: var(--wine); }
+  .nav-links a.active { color: var(--wine); border-bottom: 1px solid var(--wine); padding-bottom: 2px; }
 
   /* HERO */
   .hero {
@@ -656,7 +663,8 @@
     transition: color 0.2s, border-color 0.2s;
   }
 
-  .video-link:hover { color: var(--wine); border-color: var(--wine); }
+  .nav-links a.active { color: var(--wine); }
+
 
   /* DIGITAL / INTERACTIVE */
   .digital { background: var(--cream); }
@@ -881,9 +889,11 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
+    .nav-links { gap: 1.2rem; overflow-x: auto; -webkit-overflow-scrolling: touch; flex-wrap: nowrap; padding-bottom: 2px; }
+    .nav-links::-webkit-scrollbar { display: none; }
     .hero { grid-template-columns: 1fr; min-height: auto; }
-    .hero-right { height: 50vw; }
+    .hero-right { height: 100vw; }
+    .hero-photo-wrap img { object-position: center center; }
     .hero-left { padding: 5rem 2rem 3rem; }
     section { padding: 5rem 2rem; }
     .about { padding: 5rem 2rem; }
@@ -915,6 +925,7 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       LinkedIn
     </a></li>
+    <li><a href="https://raw.githubusercontent.com/asirisouk/alexissirisouk.github.io/main/2026_Alexis_Sirisouk_Resume.pdf" target="_blank" style="background: var(--wine); color: white !important; padding: 0.3rem 0.9rem; letter-spacing: 0.1em;" id="resume-link">Resume</a></li>
   </ul>
 </nav>
 
@@ -925,7 +936,7 @@
     <h1 class="hero-name">Alexis<br><em>Sirisouk</em></h1>
     <p class="hero-subtitle">Content Strategist & Creative</p>
     <p class="hero-desc">
-      UConn BA candidate in Digital Media and Design with a concentration in Business Strategies. I work across brand strategy, social media, visual design, and video with a belief that the best creative work is both intentional and human.
+      UConn BA graduate in Digital Media and Design with a concentration in Business Strategies, based in Shelton, CT. I work across brand strategy, social media, visual design, and video with a belief that the best creative work is both intentional and human.
     </p>
     <p class="hero-desc" style="margin-top: -1rem;">
       I have studied abroad at Yonsei University in Seoul, earned my Google Analytics 4 certification, and started as a 4.0 Dean's List student at CT State before transferring to UConn. I am drawn to work that lives at the intersection of the analytical and the creative, where data informs story and design communicates identity.
@@ -1076,7 +1087,8 @@
         <p style="font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--matcha); margin-bottom: 1rem;">Design Research · DMD 3720</p>
         <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem; line-height: 1.3;">The Designer of Glossier</p>
         <p style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.2rem;">What interested me most about Glossier was not the pink or the minimalism but the philosophy underneath it. Adriana Deleo described their approach as a balance between the aspirational and the practical, designing for the medicine cabinet rather than the store shelf.</p>
-        <p style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.85;">This project was an attempt to understand what that actually means when translated into a font choice, a packaging decision, or a product name. The presentation was built entirely inside Glossier's own visual language as a way of testing that understanding.</p>
+        <p style="font-size: 0.88rem; color: var(--ink-soft); line-height: 1.85; margin-bottom: 1.2rem;">This project was an attempt to understand what that actually means when translated into a font choice, a packaging decision, or a product name. The presentation was built entirely inside Glossier's own visual language as a way of testing that understanding.</p>
+        <a href="https://raw.githubusercontent.com/asirisouk/alexissirisouk.github.io/main/Glossier%20Design%20Research%20Project.pdf" target="_blank" style="font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--matcha); border-bottom: 1px solid var(--matcha); padding-bottom: 1px;">View Slides ↗</a>
       </div>
     </div>
   </div>
@@ -1195,7 +1207,7 @@
     <div class="cert-card" style="border-top-color: var(--lemon);">
       <div class="cert-icon">✦</div>
       <h3 class="cert-name">CT State AA — Dean's List</h3>
-      <p class="cert-detail">4.0 GPA<br>Associate of Arts</p>
+      <p class="cert-detail">4.0 GPA<br>Associate of Liberal Arts</p>
     </div>
 
     <div class="cert-card" style="border-top-color: var(--clogs);">
@@ -1207,7 +1219,7 @@
     <div class="cert-card" style="border-top-color: var(--matcha);">
       <div class="cert-icon">📊</div>
       <h3 class="cert-name">Google Analytics 4 Certified</h3>
-      <p class="cert-detail">Issued October 2, 2025 · Expires October 2, 2026<br>Certificate ID: 162350659</p>
+      <p class="cert-detail">Issued October 2, 2025<br>Google</p>
     </div>
   </div>
 
@@ -1223,7 +1235,30 @@
       <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">p5.js</span>
       <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Google Analytics 4</span>
       <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Omeka</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Microsoft Office Suite</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Google Workspace</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">SEO</span>
     </div>
+  </div>
+
+  <div style="margin-top: 1.5rem; padding: 2rem; background: white; border: 1px solid rgba(0,0,0,0.07);">
+    <p style="font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--matcha); margin-bottom: 1.2rem;">Soft Skills</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Content Strategy</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Brand Storytelling</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Research & Analysis</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Written Communication</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Creative Direction</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Attention to Detail</span>
+      <span class="tool-tag" style="border-color: rgba(0,0,0,0.1); color: var(--ink-soft);">Collaboration</span>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; display: flex; align-items: center; gap: 1.5rem;">
+    <a href="#" style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--candle); color: white; padding: 0.85rem 2rem; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; opacity: 0.4; pointer-events: none;">
+      Download Resume ↓
+    </a>
+    <span style="font-size: 0.72rem; color: var(--ink-soft); font-style: italic;">Coming soon — upload in progress</span>
   </div>
 </section>
 
@@ -1243,7 +1278,7 @@
         </div>
         <div class="about-detail">
           <span>Location</span>
-          <span>Storrs, CT</span>
+          <span>Shelton, CT</span>
         </div>
         <div class="about-detail">
           <span>Instagram</span>
@@ -1261,7 +1296,7 @@
     </div>
     <div class="about-right">
       <p>I am someone who pays attention. To the font on a coffee cup, to the way a brand guide can outlive the person who made it, to the moment a piece of media makes you feel something you did not expect. That attentiveness is what I bring to everything I make, whether it is a social media strategy or a Photoshop collage built from things I found interesting that week.</p>
-      <p>I am drawn to work that takes both craft and rigor seriously, and to teams who understand those two things are not opposites. What ties it all together is a genuine interest in how brands earn and keep trust, and how the right creative decisions make that possible.</p>
+      <p>Outside of work I am usually reading, writing on Substack, watching films, or finding new music. I am drawn to work that takes both craft and rigor seriously, and to teams who understand those two things are not opposites. What ties it all together is a genuine curiosity about how brands earn trust, and how the right creative decisions make that possible.</p>
     </div>
   </div>
 </section>
@@ -1281,5 +1316,37 @@
   </div>
 </footer>
 
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) current = section.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  });
+</script>
 </body>
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
 </html>
