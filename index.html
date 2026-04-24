@@ -561,6 +561,36 @@
     letter-spacing: 0.04em;
   }
 
+  /* Digi-Phernia poster cards with caption below */
+  .poster-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .poster-item img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.4s, box-shadow 0.4s;
+    display: block;
+  }
+
+  .poster-item:hover img {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.22), 0 4px 12px rgba(0,0,0,0.12);
+  }
+
+  .poster-caption {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+
   .creative-side {
     display: flex;
     flex-direction: column;
@@ -1145,19 +1175,26 @@
         <p style="font-size: 0.84rem; line-height: 1.9; color: var(--ink-soft); margin-bottom: 1rem;">Three posters designed for the 2024 UConn Digital Media and Design MFA Thesis Exhibition at the William Benton Museum of Art. Each poster interprets a different corner of digital space: a computer window, a digital paint canvas, and a video player, using pixelated type and primary colors to evoke a retro digital aesthetic.</p>
         <p style="font-size: 0.84rem; line-height: 1.9; color: var(--ink-soft);">Inspired by Douglas Rushkoff's concept of "digi-phernia," the phenomenon of navigating multiple digital realms simultaneously, the posters connect nostalgia for early digital culture with the present creative freedom of shared digital spaces.</p>
       </div>
-      <div class="digi-posters" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
-        <div class="collage-item" style="aspect-ratio: 2/3;">
-          <img src="2%20Project%20One%20Design%20with%20a%20Smile-01.jpg" alt="Digi-Phernia poster 1" onerror="this.parentElement.style.background='var(--clogs)'">
-          <div class="collage-overlay"><span class="collage-caption">Instant Message</span></div>
+      <div class="digi-posters" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;">
+        <div class="poster-item">
+          <img src="2%20Project%20One%20Design%20with%20a%20Smile-03.jpg" alt="Digi-Phernia Digital Paint Canvas poster" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
+          <span class="poster-caption">Digital Paint Canvas</span>
+          <a href="https://youtube.com/shorts/_C_rg16x3bE?feature=share" target="_blank" style="font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--matcha); text-decoration: none; border-bottom: 1px solid var(--matcha); padding-bottom: 1px; text-align: center; display: block; margin-top: 0.2rem;">Watch Process ↗</a>
         </div>
-        <div class="collage-item" style="aspect-ratio: 2/3;">
-          <img src="2%20Project%20One%20Design%20with%20a%20Smile-03.jpg" alt="Digi-Phernia poster 2" onerror="this.parentElement.style.background='var(--lemon)'">
-          <div class="collage-overlay"><span class="collage-caption">Paint Canvas</span></div>
+        <div class="poster-item">
+          <img src="2%20Project%20One%20Design%20with%20a%20Smile-04.jpg" alt="Digi-Phernia Video Player poster" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
+          <span class="poster-caption">Video Player</span>
         </div>
-        <div class="collage-item" style="aspect-ratio: 2/3;">
-          <img src="2%20Project%20One%20Design%20with%20a%20Smile-04.jpg" alt="Digi-Phernia poster 3" onerror="this.parentElement.style.background='var(--wine)'">
-          <div class="collage-overlay"><span class="collage-caption">Video Player</span></div>
+        <div class="poster-item">
+          <img src="2%20Project%20One%20Design%20with%20a%20Smile-01.jpg" alt="Digi-Phernia Instant Message poster" onclick="openLightbox(this.src)" style="cursor: zoom-in;">
+          <span class="poster-caption">Instant Message</span>
         </div>
+      </div>
+
+      <!-- LIGHTBOX -->
+      <div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:9999; align-items:center; justify-content:center; cursor:zoom-out;">
+        <img id="lightbox-img" src="" alt="" style="max-height:90vh; max-width:90vw; box-shadow:0 20px 60px rgba(0,0,0,0.5); object-fit:contain;">
+        <button onclick="closeLightbox()" style="position:absolute; top:1.5rem; right:2rem; background:none; border:none; color:white; font-size:2rem; cursor:pointer; line-height:1;">&#x2715;</button>
       </div>
     </div>
   </div>
@@ -1364,7 +1401,7 @@
       </div>
     </div>
     <div class="about-right">
-      <p>I am someone who pays attention. To the font on a coffee cup, to the way a brand guide can outlive the person who made it, to the moment a piece of media makes you feel something you did not expect. That attentiveness is what I bring to everything I make, whether it is a social media strategy or a Photoshop collage built from things I found interesting that week.</p>
+      <p>I am someone who pays attention to the font on a coffee cup, the way a brand guide can outlive the person who made it, to the moment a piece of media makes you feel something you did not expect. That attentiveness is what I bring to everything I make, whether it is a social media strategy or a Photoshop collage built from things I found interesting that week.</p>
       <p>Outside of work I am usually reading, writing on Substack, watching films, or finding new music. I am drawn to work that takes both craft and rigor seriously, and to teams who understand those two things are not opposites. What ties it all together is a genuine curiosity about how brands earn trust, and how the right creative decisions make that possible.</p>
     </div>
   </div>
@@ -1386,6 +1423,7 @@
 </footer>
 
 <script>
+  // Scroll spy
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   window.addEventListener('scroll', () => {
@@ -1398,24 +1436,19 @@
       if (a.getAttribute('href') === '#' + current) a.classList.add('active');
     });
   });
+
+  // Lightbox
+  function openLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 </body>
-<script>
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 120) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === '#' + current) {
-        link.classList.add('active');
-      }
-    });
-  });
-</script>
 </html>
