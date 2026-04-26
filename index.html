@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta property="og:title" content="Alexis Sirisouk — Portfolio">
 <meta property="og:description" content="Content Strategist & Creative. UConn Digital Media & Design.">
-<meta property="og:image" content=portfolio_imessage_preview.png">
+<meta property="og:image" content="https://alexissirisouk.github.io/portfolio%20imessage%20preview.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Alexis Sirisouk — Content Strategist & Creative">
 <meta property="og:url" content="https://alexissirisouk.github.io">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://alexissirisouk.github.io/portfolio_imessage_preview.png">
-<link rel="apple-touch-icon" href="https://alexissirisouk.github.io/portfolio_imessage_preview.png">
+<meta name="twitter:image" content="https://alexissirisouk.github.io/portfolio%20imessage%20preview.png">
+<link rel="apple-touch-icon" href="https://alexissirisouk.github.io/portfolio%20imessage%20preview.png">
 <title>Alexis Sirisouk</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="shortcut icon" href="favicon.svg">
@@ -1069,9 +1071,9 @@
 
   <div class="project-grid">
     <div class="project-card">
-      <div class="card-color-bar" style="background: #1a5fa8;"></div>
+      <div class="card-color-bar" style="background: #156082;"></div>
       <div class="card-body">
-        <p class="card-tag" style="color: #1a5fa8; margin-bottom:0.6rem;">Social Media Strategy · UConn DMD</p>
+        <p class="card-tag" style="color: #156082; margin-bottom:0.6rem;">Social Media Strategy · UConn DMD</p>
         <h3 class="card-title">NRCA Social Media Brand Strategy</h3>
         <p class="card-desc">A full social media strategy and brand guide produced for the National Roofing Contractors Association as part of UConn's Digital Media and Design program. Social listening and audience data were gathered using Talkwalker. Deliverables included a color and typography system, Canva templates, platform-specific posting guides for Instagram, TikTok, and LinkedIn, a hashtag library, and an event workflow built to sustain the brand beyond the project period.</p>
         <span style="font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(0,0,0,0.3); font-style: italic;">Agency site coming soon</span>
@@ -1520,6 +1522,17 @@
     });
   });
 
+  // Security — disable right click and common inspect shortcuts
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) ||
+      (e.ctrlKey && e.key === 'U')
+    ) { e.preventDefault(); }
+  });
+</script>
+<script>
   // Lightbox
   function openLightbox(src) {
     const lb = document.getElementById('lightbox');
