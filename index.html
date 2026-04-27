@@ -574,7 +574,19 @@
     letter-spacing: 0.04em;
   }
 
-  /* Digi-Phernia poster cards with caption below */
+  .hero-photo-desktop { display: block; }
+  .hero-photo-mobile { display: none; }
+
+  @media (max-width: 900px) {
+    .hero-photo-desktop { display: none; }
+    .hero-photo-mobile {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+  }
   .poster-item {
     display: flex;
     flex-direction: column;
@@ -1055,11 +1067,14 @@
   </div>
   <div class="hero-right">
     <div class="hero-photo-wrap">
-      <img src="DSC00032.JPG" alt="Alexis Sirisouk"
-        onerror="this.onerror=null; this.parentElement.style.background='var(--gingham)'; this.style.display='none'; this.parentElement.innerHTML += '<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-family:Cormorant Garamond,serif;font-size:1.2rem;font-style:italic;color:rgba(255,255,255,0.6);letter-spacing:0.06em;\'>Alexis Sirisouk</div>';">
+      <!-- Desktop photo -->
+      <img class="hero-photo-desktop" src="DSC00032.JPG" alt="Alexis Sirisouk"
+        onerror="this.onerror=null; this.style.display='none';">
+      <!-- Mobile photo -->
+      <img class="hero-photo-mobile" src="mobile_version_self_pic.jpg" alt="Alexis Sirisouk"
+        onerror="this.onerror=null; this.style.display='none';">
       <div class="hero-color-block"></div>
     </div>
-
   </div>
 </section>
 
